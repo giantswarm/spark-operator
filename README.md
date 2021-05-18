@@ -1,12 +1,16 @@
 [![CircleCI](https://circleci.com/gh/giantswarm/{APP-NAME}-app.svg?style=shield)](https://circleci.com/gh/giantswarm/{APP-NAME}-app)
 
-# {APP-NAME} chart
+# Spark Operator chart
 
-Giant Swarm offers a {APP-NAME} App which can be installed in workload clusters.
-Here we define the {APP-NAME} chart with its templates and default configuration.
+Giant Swarm offers a Spark Operator  App which can be installed in workload clusters.
+Here we define the Spark Operator  chart with its templates and default configuration.
 
 **What is this app?**
+
+Spark operator, created by Google, that helps to launch Spark jobs, control and track those and some nice functionality on top.
+
 **Why did we add it?**
+
 **Who can use it?**
 
 ## Installing
@@ -61,4 +65,4 @@ Not following these limitations will most likely result in a broken deployment.
 
 ## Credit
 
-* {APP HELM REPOSITORY}
+https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/tree/master/charts/spark-operator-chart
