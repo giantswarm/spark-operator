@@ -7,7 +7,7 @@ icon: https://some.domain.com/logo.png
 name: spark-operator
 sources:
 - https://github.com/some-org/some-repo
-version: 1
+version: [[ .Version ]]
 maintainers:
   - name: yuchaoran2011
     email: yuchaoran2011@gmail.com
