@@ -37,3 +37,15 @@ Selector labels
 app.kubernetes.io/name: {{ include "name" . | quote }}
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end -}}
+
+{{/*
+Create the name of the service account to be used by spark apps
+*/}}
+{{- define "serviceAccountName" -}}
+{{- if .Values.serviceAccounts.spark.create -}}
+{{- $sparkServiceaccount := printf "%s-%s" .Release.Name "spark" -}}
+    {{ default $sparkServiceaccount .Values.serviceAccounts.spark.name }}
+{{- else -}}
+    {{ default "default" .Values.serviceAccounts.spark.name }}
+{{- end -}}
+{{- end -}}
