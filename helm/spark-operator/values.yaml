@@ -152,4 +152,3 @@ istio:
 
 # labelSelectorFilter -- A comma-separated list of key=value, or key labels to filter resources during watch and list based on the specified labels.
 labelSelectorFilter: ""
-
