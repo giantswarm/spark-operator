@@ -1,0 +1,15 @@
+{{ if .Values.webhook.enable }}
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ include "name" . }}-webhook
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+spec:
+  ports:
+  - port: 443
+    targetPort: {{ .Values.webhook.port }}
+    name: webhook
+  selector:
+    {{- include "labels.selector" . | nindent 4 }}
+{{ end }}
