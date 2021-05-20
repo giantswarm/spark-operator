@@ -112,7 +112,7 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
 subjects:
   - kind: ServiceAccount
-    name: {{ include "serviceAccountName" . }}
+    name: {{ include "spark-operator.serviceAccountName" . }}
     namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole

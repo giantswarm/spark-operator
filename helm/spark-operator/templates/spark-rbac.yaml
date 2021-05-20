@@ -26,7 +26,6 @@ rules:
   verbs:
   - "*"
 ---
-
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -36,10 +35,45 @@ metadata:
     {{- include "labels.common" . | nindent 4 }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "serviceAccountName" . }}
+  name: {{ .Values.sparkJobServiceAccount  }}
   namespace: {{ default .Release.Namespace .Values.sparkJobNamespace }}
 roleRef:
   kind: Role
   name: spark-role
   apiGroup: rbac.authorization.k8s.io
+---  
+{{- if .Values.psp.create }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: spark-psp
+  namespace: {{ default .Release.Namespace .Values.sparkJobNamespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+rules:
+- apiGroups:
+  - policy
+  resources:
+  - podsecuritypolicy
+  resourceNames:
+  - spark-psp
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: spark-psp
+  namespace: {{ default .Release.Namespace .Values.sparkJobNamespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.sparkJobServiceAccount  }}
+  namespace: {{ default .Release.Namespace .Values.sparkJobNamespace }}
+roleRef:
+  kind: ClusterRole
+  name: spark-psp
+  apiGroup: rbac.authorization.k8s.io
+{{- end}}
 {{- end }}
