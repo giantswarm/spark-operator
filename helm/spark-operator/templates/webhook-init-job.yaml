@@ -14,7 +14,7 @@ spec:
         "sidecar.istio.io/inject": "false"
       {{- end }}
     spec:
-      serviceAccountName: {{ include "serviceAccountName" . }}
+      serviceAccountName: {{ include "spark-operator.serviceAccountName" . }}
       restartPolicy: OnFailure
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

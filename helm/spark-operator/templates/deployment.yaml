@@ -33,7 +33,7 @@ spec:
       labels:
         {{- include "labels.selector" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "serviceAccountName" . }}
+      serviceAccountName: {{ include "spark-operator.serviceAccountName" . }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}

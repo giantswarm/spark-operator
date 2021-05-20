@@ -39,13 +39,12 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end -}}
 
 {{/*
-Create the name of the service account to be used by spark apps
+Create the name of the service account to be used by the operator
 */}}
-{{- define "serviceAccountName" -}}
-{{- if .Values.serviceAccounts.spark.create -}}
-{{- $sparkServiceaccount := printf "%s-%s" .Release.Name "spark" -}}
-    {{ default $sparkServiceaccount .Values.serviceAccounts.spark.name }}
+{{- define "spark-operator.serviceAccountName" -}}
+{{- if .Values.serviceAccounts.sparkoperator.create -}}
+{{ default (include "name" .) .Values.serviceAccounts.sparkoperator.name }}
 {{- else -}}
-    {{ default "default" .Values.serviceAccounts.spark.name }}
+{{ default "default" .Values.serviceAccounts.sparkoperator.name }}
 {{- end -}}
 {{- end -}}
