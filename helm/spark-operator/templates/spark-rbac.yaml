@@ -54,7 +54,7 @@ rules:
 - apiGroups:
   - policy
   resources:
-  - podsecuritypolicy
+  - podsecuritypolicies
   resourceNames:
   - spark-psp
   verbs:
