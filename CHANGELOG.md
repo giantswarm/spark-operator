@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Fix PodSecurityPolicy RBAC configuration to ensure Spark Jobs can mount EmptyDirs.
+
 ## [0.0.1] - 2021-05-21
 
 - Add templates from upstream project.
