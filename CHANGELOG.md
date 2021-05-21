@@ -7,4 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/giantswarm/REPOSITORY_NAME/tree/master
+- Add templates from upstream project.
+- Ensure Spark Jobs has correct PSP and RBAC.
+
+[Unreleased]: https://github.com/giantswarm/spark-operator/tree/master
