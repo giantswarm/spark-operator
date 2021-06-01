@@ -1,0 +1,11 @@
+checks:
+  addAllBuiltIn: true
+  exclude:
+  - "no-liveness-probe"
+  - "no-read-only-root-fs"
+  - "no-readiness-probe"
+  - "required-annotation-email"
+  - "required-label-owner"
+  - "run-as-non-root"
+  - "unset-cpu-requirements"
+  - "unset-memory-requirements"

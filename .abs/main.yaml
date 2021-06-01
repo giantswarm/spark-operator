@@ -1,4 +1,8 @@
 replace-chart-version-with-git: true
 generate-metadata: true
-chart-dir: ./helm/{APP-NAME}
+chart-dir: ./helm/spark-operator
 destination: ./build
+# CI overwrites this, check .circleci/config.yaml
+catalog-base-url: https://giantswarm.github.com/default-catalog/
+
+skip-steps: test_all
