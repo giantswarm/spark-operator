@@ -3,7 +3,6 @@ appVersion: 2.4.0
 description: A Helm chart for spark-operator
 engine: gotpl
 home: https://github.com/giantswarm/spark-operator
-icon: https://some.domain.com/logo.png
 name: spark-operator
 sources:
 - https://github.com/some-org/some-repo
